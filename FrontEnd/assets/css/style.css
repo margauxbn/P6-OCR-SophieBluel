@@ -63,13 +63,18 @@ section {
 	margin: 50px 0
 }
 
-h1{
+h1, .title-to-index {
 	display: flex;
 	flex-direction: column;
 	font-family: 'Syne';
 	font-size: 22px;
 	font-weight: 800;
-	color: #B1663C
+	color: #B1663C;
+}
+
+.title-to-index {
+	text-decoration: none;
+	cursor: pointer;
 }
 
 h1 > span {
