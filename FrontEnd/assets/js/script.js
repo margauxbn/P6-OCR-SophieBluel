@@ -1,6 +1,7 @@
 const gallery = document.getElementsByClassName("gallery")[0];
 const filters = document.getElementsByClassName("filters")[0];
 
+
 //****** Ajout des travaux ******//
 
 // Récupération des travaux
@@ -31,6 +32,7 @@ async function showWorks() {
 }
 
 showWorks();
+
 
 //****** Ajout des boutons de filtres par catégorie ******//
 
@@ -66,6 +68,7 @@ async function showCategoryButtons() {
 
 showCategoryButtons();
 
+
 //****** Activation des filtres ******//
 
 // Filtrage au clic
@@ -94,3 +97,48 @@ async function filtersCategories() {
         });
     });
 };
+
+
+//****** Utilisateur connecté ******//
+
+const logged = window.sessionStorage.logged;
+const logout = document.querySelector("header nav ul a li");
+
+if (logged === "true") {
+    logout.textContent = "logout";
+
+    logout.addEventListener("click", () =>
+        window.sessionStorage.logged = false
+    );
+};
+
+const editMode = document.getElementById("edition");
+const editProject = document.getElementById("edit-project")
+
+if (logged === "true") {
+    editMode.style.display = "flex";
+    editProject.style.display = "flex";
+};
+
+
+//****** Affichage de la modale ******//
+
+const containerModal = document.getElementsByClassName("container-modal")[0];
+
+editProject.addEventListener("click", () => {
+    containerModal.style.display = "flex";
+});
+
+//****** Fermeture de la modale ******//
+
+const xMark = document.getElementsByClassName("fa-x")[0];
+
+xMark.addEventListener("click", () => {
+    containerModal.style.display = "none";
+});
+
+containerModal.addEventListener("click", (e) => {
+    if (e.target.className === "container-modal") {
+        containerModal.style.display = "none";
+    }
+});
