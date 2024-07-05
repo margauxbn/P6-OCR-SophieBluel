@@ -44,8 +44,6 @@ table {
 }
 /** end reset css**/
 body {
-	max-width: 1140px;
-	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
     background-color: #FFFEF8;
@@ -53,7 +51,8 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+	margin: 50px auto;
+	max-width: 1140px;
 }
 section {
 	margin: 50px 0
@@ -98,6 +97,12 @@ nav a {
 li:hover {
 	color: #B1663C;
 }
+
+main {
+	height: 66.7vh;
+	max-width: 1140px;
+	margin:auto;
+}
 /* Block login*/
 .block-login {
     display: flex;
@@ -114,6 +119,12 @@ h2 {
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
+}
+
+.error-message {
+	margin-bottom: 30px;
+	color: #D63A08;
+	font-weight: 600;
 }
 
 label, a {
