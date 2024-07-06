@@ -1,3 +1,6 @@
+//**************** TRAVAUX PAGE D'ACCUEIL ****************//
+
+
 const gallery = document.getElementsByClassName("gallery")[0];
 const filters = document.getElementsByClassName("filters")[0];
 
@@ -32,6 +35,10 @@ async function showWorks() {
 }
 
 showWorks();
+
+
+
+//**************** FILTRES ****************//
 
 
 //****** Ajout des boutons de filtres par catégorie ******//
@@ -121,6 +128,10 @@ if (logged === "true") {
 };
 
 
+
+//**************** MODALE ****************//
+
+
 //****** Affichage de la modale ******//
 
 const containerModal = document.getElementsByClassName("container-modal")[0];
@@ -128,6 +139,7 @@ const containerModal = document.getElementsByClassName("container-modal")[0];
 editProject.addEventListener("click", () => {
     containerModal.style.display = "flex";
 });
+
 
 //****** Fermeture de la modale ******//
 
@@ -142,3 +154,69 @@ containerModal.addEventListener("click", (e) => {
         containerModal.style.display = "none";
     }
 });
+
+
+//****** Affichage des projets dans la modale ******//
+
+const projectModal = document.getElementsByClassName("project-modal")[0];
+
+async function addProjectModal() {
+    projectModal.innerHTML = ""
+    const projects = await getWorks();
+
+    projects.forEach(project => {
+        const figure = document.createElement("figure");
+        const img = document.createElement("img");
+        const span = document.createElement("span");
+        const trash = document.createElement("i");
+
+        img.src = project.imageUrl;
+        trash.id = project.id;
+
+        trash.classList.add("fa-solid", "fa-trash-can");
+
+        projectModal.appendChild(figure);
+        figure.appendChild(img);
+        figure.appendChild(span);
+        span.appendChild(trash);
+    });
+
+    deleteProject();
+};
+
+addProjectModal();
+
+
+//****** Suppression des travaux dans la modale ******//
+
+function deleteProject() {
+    const allTrash = document.querySelectorAll(".fa-trash-can");
+
+    allTrash.forEach(trash => {
+        trash.addEventListener("click", (e) => {
+            const trashId = trash.id;
+            const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyMDI1MzU2MywiZXhwIjoxNzIwMzM5OTYzfQ.X2KfyeHYPCY9VEZIxwIaSjQhXK1WUpDmgeMhQGRGwOc";
+            const init = {
+                method: "DELETE",
+                headers: {
+                    "content-Type" : "application/json",
+                    "Authorization": "Bearer " + token
+                },
+            };
+            fetch("http://localhost:5678/api/works/" + trashId, init)
+            .then((response) => {
+                if (!response.ok) {
+                    console.log("delete pas ok");
+                }
+                return response.json()
+            })
+            .then((data) => {
+                console.log("delete ok", data)
+                addProjectModal();
+                showWorks();
+            });
+        });
+    });        
+};
+
+deleteProject();
