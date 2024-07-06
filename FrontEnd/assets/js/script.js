@@ -2,7 +2,6 @@
 
 
 
-
 const gallery = document.getElementsByClassName("gallery")[0];
 const filters = document.getElementsByClassName("filters")[0];
 
@@ -48,12 +47,7 @@ showWorks();
 
 
 
-
-
-
 //**************** FILTRES ****************//
-
-
 
 
 //****** Ajout des boutons de filtres par catégorie ******//
@@ -167,11 +161,7 @@ if (logged === "true") {
 
 
 
-
-
 //**************** MODALE ****************//
-
-
 
 
 //****** Affichage de la modale ******//
@@ -183,7 +173,6 @@ const containerModal = document.getElementsByClassName("container-modal")[0];
 editProject.addEventListener("click", () => {
     containerModal.style.display = "flex";
 });
-
 
 
 
@@ -206,12 +195,9 @@ containerModal.addEventListener("click", (e) => {
 
 
 
-
 //****** Affichage des projets dans la modale ******//
 
-
 const projectModal = document.getElementsByClassName("project-modal")[0];
-
 
 async function addProjectModal() {
     projectModal.innerHTML = ""
@@ -228,9 +214,7 @@ async function addProjectModal() {
         img.src = project.imageUrl;
         trash.id = project.id;
 
-
         trash.classList.add("fa-solid", "fa-trash-can");
-
 
         projectModal.appendChild(figure);
         figure.appendChild(img);
@@ -242,18 +226,13 @@ async function addProjectModal() {
     deleteProject();
 };
 
-
 addProjectModal();
-
-
 
 
 //****** Suppression des travaux dans la modale ******//
 
-
 function deleteProject() {
     const allTrash = document.querySelectorAll(".fa-trash-can");
-
 
     allTrash.forEach(trash => {
         trash.addEventListener("click", (e) => {

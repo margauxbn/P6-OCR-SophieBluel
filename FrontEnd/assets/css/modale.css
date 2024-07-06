@@ -54,9 +54,9 @@ hr {
     color: white;
     background-color: #1D6154;
     padding: 10px;
-    margin-bottom : 2rem;
-    width: 180px;
-    border-radius: 60px;
+	  margin-bottom : 2rem;
+	  width: 180px;
+	  border-radius: 60px;
     border: #1D6154 1px solid;
     cursor: pointer;
 }
@@ -67,9 +67,8 @@ hr {
     height: 50%;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
+    gap: 10px; 
 }
-
 
 .project-modal figure {
     position: relative;
@@ -77,10 +76,9 @@ hr {
 
 
 .project-modal img {
-    width: 100%;
-    height: auto;
+    width: 100%; 
+    height: auto; 
 }
-
 
 .project-modal span {
     z-index: 1;
