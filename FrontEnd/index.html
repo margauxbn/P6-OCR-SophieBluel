@@ -54,7 +54,37 @@
         </div>
     </div>
 
+		<div class="add-project-modal">
+            <i class="fa-solid fa-arrow-left"></i>
+            <i class="fa-solid fa-x"></i>
+            <h2>Ajout photo</h2>
+            <form>
+                <div class="container-add-file">
+                    <i class="fa-solid fa-x xmark-preview"></i>
+                    <i class="fa-regular fa-image"></i>
+                    <label for="file" class="label-file">+ Ajouter photo</label>
+                    <input type="file" id="file" name="image" class="input-file">
+                    <img src="#" alt="Image à poster" class="img-preview">
+                    <p class="p-file">jpg, png : 4mo max</p>
+                </div>
 
+
+                <label for="title">Titre</label>
+                <input type="text" id="title" name="title">
+
+
+                <label for="category">Catégorie</label>
+                <select name="category" id="category"></select>
+               
+                <hr />
+
+                <div class="btn-validate">
+                    <button class="btn-validate-img btn-not-valid" disabled>Valider</button>                    
+                </div>
+            </form>
+        </div>
+	</div>
+	
 <div id="edition" class="edition">
 	<i class="fa-regular fa-pen-to-square"></i>
 	<p>Mode édition</p>
@@ -87,7 +117,7 @@
 			<h2>Mes Projets</h2>
 			<button id="edit-project" class="hide-edit-project">
 				<i class="fa-regular fa-pen-to-square"></i>
-				<p>modifier</p>
+				modifier
 			</button>
 		</div>
 		<div class="filters"></div>

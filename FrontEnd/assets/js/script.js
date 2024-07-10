@@ -1,6 +1,5 @@
 //**************** TRAVAUX PAGE D'ACCUEIL ****************//
 
-
 const gallery = document.getElementsByClassName("gallery")[0];
 const filters = document.getElementsByClassName("filters")[0];
 
@@ -130,7 +129,6 @@ if (sessionStorage.token) {
 
 //**************** MODALE ****************//
 
-
 //****** Affichage de la modale ******//
 
 const containerModal = document.getElementsByClassName("container-modal")[0];
@@ -196,7 +194,7 @@ function deleteProject() {
     allTrash.forEach(trash => {
         trash.addEventListener("click", (e) => {
             const trashId = trash.id;
-           
+
             const init = {
                 method: "DELETE",
                 headers: {
@@ -249,6 +247,7 @@ function displayAddModal() {
     });
 };
 
+
 displayAddModal();
 
 
@@ -296,6 +295,7 @@ xMarkPreview.addEventListener("click", () => {
 });
 
 
+
 //****** Création d'une liste des catégories pour l'input "Select" ******//
 
 async function addCategoriesModal() {
@@ -306,7 +306,6 @@ async function addCategoriesModal() {
         const option = document.createElement("option");
         option.value = category.id;
         option.textContent = category.name;
-
 
         select.appendChild(option);
     });
@@ -363,3 +362,4 @@ form.addEventListener("input", () => {
         btnValidation.disabled = false;
     }
 });
+
