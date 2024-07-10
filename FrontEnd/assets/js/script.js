@@ -214,7 +214,6 @@ function deleteProject() {
     allTrash.forEach(trash => {
         trash.addEventListener("click", (e) => {
             const trashId = trash.id;
-            
             const init = {
                 method: "DELETE",
                 headers: {
@@ -243,7 +242,9 @@ function deleteProject() {
 deleteProject();
 
 
+
 //****** Apparition de la modale d'ajout des nouveaux projets ******//
+
 
 const firstModal = document.getElementsByClassName("elements-modal")[0];
 const btnAddProject = document.getElementsByClassName("btn-add-img")[0];
@@ -267,10 +268,14 @@ function displayAddModal() {
     });
 };
 
+
 displayAddModal();
 
 
+
+
 //****** Aperçu de l'image dans la modale avant d'être postée ******//
+
 
 const imgIcon = document.getElementsByClassName("fa-image")[0];
 const labelFile = document.getElementsByClassName("label-file")[0];
@@ -283,8 +288,10 @@ function previewProject() {
     inputFile.addEventListener("change", () => {
         const file = inputFile.files[0];
 
+
         if(file) {
             const reader = new FileReader();
+
 
             reader.onload = function(e) {
                 imgPreview.src = e.target.result;
@@ -299,10 +306,14 @@ function previewProject() {
     });    
 };
 
+
 previewProject();
 
 
+
+
 //****** Suppression de l'image sélectionnée dans la modale ******//
+
 
 xMarkPreview.addEventListener("click", () => {
     imgPreview.src = "";
@@ -314,7 +325,10 @@ xMarkPreview.addEventListener("click", () => {
 });
 
 
+
+
 //****** Création d'une liste des catégories pour l'input "Select" ******//
+
 
 async function addCategoriesModal() {
     const select = document.querySelector("form select");
@@ -329,20 +343,28 @@ async function addCategoriesModal() {
     });
 };
 
+
 addCategoriesModal();
 
 
+
+
 //****** Ajout du projet souhaité ******//
+
 
 const form = document.querySelector(".add-project-modal form");
 const title = document.querySelector("form #title");
 const category = document.querySelector("form #category");
 
 
+
+
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
+
     const formData = new FormData(form);
+
 
     try {
         const response = await fetch("http://localhost:5678/api/works", {
@@ -357,7 +379,9 @@ form.addEventListener("submit", async (e) => {
             throw new Error("Erreur lors de l'envoi des données : " + response.status);
         }
 
+
         const data = await response.json();
+
 
         addWorks();
         containerModal.style.display = "none";

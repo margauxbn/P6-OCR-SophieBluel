@@ -160,6 +160,10 @@ li:hover {
 
 .portfolio-title {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -173,11 +177,11 @@ li:hover {
 
 #portfolio #edit-project {
     display: none;
-	cursor: pointer;
-	font-family: "Work Sans";
-	font-size: 14px;
-	border: none;
-	background-color: transparent;
+    cursor: pointer;
+    font-family: "Work Sans";
+    font-size: 14px;
+    border: none;
+    background-color: transparent;
 }
 
 #portfolio .fa-pen-to-square {
