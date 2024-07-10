@@ -10,6 +10,7 @@
     position: relative;
 }
 
+
 .fa-arrow-left {
     font-size: 20px;
     position: absolute;
@@ -17,6 +18,7 @@
     left: 20px;
     cursor: pointer;
 }
+
 
 .fa-x {
     font-size: 15px;
@@ -26,6 +28,7 @@
     cursor: pointer;
 }
 
+
 .add-project-modal h2 {
     font-family: "Work Sans";
     color: black;
@@ -33,6 +36,7 @@
     font-weight: 400;
     margin-top: 25px;
 }
+
 
 .add-project-modal form {
     display: flex;
@@ -42,6 +46,7 @@
     width: 80%;
     gap: 10px;
 }
+
 
 form .container-add-file {
     background-color: #E8F1F6;
@@ -54,6 +59,7 @@ form .container-add-file {
     position: relative;
 }
 
+
 .container-add-file .xmark-preview {
     display: none;
     font-size: 10px;
@@ -63,12 +69,14 @@ form .container-add-file {
     cursor: pointer;
 }
 
+
 .container-add-file .fa-image {
     font-size: 55px;
     color: #B9C5CC;
     margin-top: 20px;
     margin-bottom: 10px;
 }
+
 
 .container-add-file label {
     display: flex;
@@ -85,15 +93,18 @@ form .container-add-file {
     cursor: pointer;
 }
 
+
 .container-add-file input {
     display: none;
 }
+
 
 .container-add-file img {
     display: none;
     max-width: 100%;
     height: 100%;
 }
+
 
 .container-add-file p {
     color: #444444;
@@ -102,12 +113,14 @@ form .container-add-file {
     font-weight: 400;
 }
 
+
 form label {
     color: #3D3D3D;    ;
     font-size: 14px;
     font-family: "Work Sans";
     font-weight: 500;
 }
+
 
 form input {
     border: #fff 1px solid;
@@ -116,19 +129,22 @@ form input {
     margin-bottom: 15px;
 }
 
+
 form select {
-    border: #fff 1px solid; 
+    border: #fff 1px solid;
     box-shadow: 0px 4px 14px 0px #00000017;
     height: 50px;
     margin-bottom: 30px;
     appearance: none;
 }
 
+
 form .btn-validate {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 
 form .btn-validate-img {
     display: flex;
@@ -137,17 +153,19 @@ form .btn-validate-img {
     font-weight: 700;
     color: white;
     padding: 10px;
-	margin-bottom : 2rem;
+    margin-bottom : 2rem;
     margin-top: 30px;
-	width: 40%;
-	border-radius: 60px;
+    width: 40%;
+    border-radius: 60px;
     cursor: pointer;
 }
+
 
 form .btn-not-valid {
     background-color: #A7A7A7;
     border: 1px solid #A7A7A7;
 }
+
 
 form .btn-valid {
     background-color: #1D6154;

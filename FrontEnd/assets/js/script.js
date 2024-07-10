@@ -119,16 +119,15 @@ async function filtersCategories() {
 
 //****** Utilisateur connecté ******//
 
-const logged = window.sessionStorage.logged;
 const logout = document.querySelector("header nav ul a li");
 
 
-if (logged === "true") {
+if (sessionStorage.token) {
     logout.textContent = "logout";
 
 
     logout.addEventListener("click", () =>
-        window.sessionStorage.logged = false
+        sessionStorage.removeItem("token")
     );
 };
 
@@ -136,7 +135,7 @@ const editMode = document.getElementById("edition");
 const editProject = document.getElementById("edit-project")
 
 
-if (logged === "true") {
+if (sessionStorage.token) {
     editMode.style.display = "flex";
     editProject.style.display = "flex";
 };
@@ -211,17 +210,19 @@ addProjectModal();
 function deleteProject() {
     const allTrash = document.querySelectorAll(".fa-trash-can");
 
+
     allTrash.forEach(trash => {
         trash.addEventListener("click", (e) => {
             const trashId = trash.id;
-            const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyMDQ0MjczNSwiZXhwIjoxNzIwNTI5MTM1fQ.NM3iVR0iKiI51AT1Hz5nkypQcuBYAoY9pRwjVnoIRWE";
+            
             const init = {
                 method: "DELETE",
                 headers: {
                     "content-Type" : "application/json",
-                    "Authorization": "Bearer " + token
+                    "Authorization": "Bearer " + sessionStorage.token
                 },
             };
+
             fetch("http://localhost:5678/api/works/" + trashId, init)
             .then((response) => {
                 if (!response.ok) {
@@ -304,10 +305,10 @@ previewProject();
 //****** Suppression de l'image sélectionnée dans la modale ******//
 
 xMarkPreview.addEventListener("click", () => {
-    imgPreview.src = ""; 
+    imgPreview.src = "";
     imgPreview.style.display = "none";
-    imgIcon.style.display = "flex"; 
-    labelFile.style.display = "flex"; 
+    imgIcon.style.display = "flex";
+    labelFile.style.display = "flex";
     paragraphFile.style.display = "flex";
     xMarkPreview.style.display = "none";
 });
@@ -343,14 +344,12 @@ form.addEventListener("submit", async (e) => {
 
     const formData = new FormData(form);
 
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyMDQ0MjczNSwiZXhwIjoxNzIwNTI5MTM1fQ.NM3iVR0iKiI51AT1Hz5nkypQcuBYAoY9pRwjVnoIRWE";
-
     try {
         const response = await fetch("http://localhost:5678/api/works", {
             method: "POST",
             body: formData,
             headers: {
-                "Authorization": "Bearer " + token
+                "Authorization": "Bearer " + sessionStorage.token
             },
         });
 
@@ -360,9 +359,9 @@ form.addEventListener("submit", async (e) => {
 
         const data = await response.json();
 
-        addWorks(); 
+        addWorks();
         containerModal.style.display = "none";
-        
+       
     } catch (error) {
         console.error('Erreur lors de la requête fetch :', error);
     }
@@ -381,4 +380,3 @@ form.addEventListener("input", () => {
         btnValidation.disabled = false;
     }
 });
-
