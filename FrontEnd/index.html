@@ -25,7 +25,6 @@
             <button class="btn-add-img">Ajouter une photo</button>
         </div>
 
-
         <div class="add-project-modal">
             <i class="fa-solid fa-arrow-left"></i>
             <i class="fa-solid fa-x"></i>
@@ -40,24 +39,21 @@
                     <p class="p-file">jpg, png : 4mo max</p>
                 </div>
 
+				<label for="title">Titre</label>
+				<input type="text" id="title" name="title">
 
-                <label for="title">Titre</label>
-                <input type="text" id="title" name="title">
+				<label for="category">Catégorie</label>
+				<select name="category" id="category"></select>
+				
+				<hr />
 
-
-                <label for="category">Catégorie</label>
-                <select name="category" id="category"></select>
-               
-                <hr />
-
-
-                <div class="btn-validate">
-                    <button class="btn-validate-img btn-not-valid" disabled>Valider</button>                    
-                </div>
-            </form>
-        </div>
-    </div>
-
+				<div class="btn-validate">
+					<button class="btn-validate-img btn-not-valid" disabled>Valider</button>					
+				</div>
+			</form>
+		</div>
+	</div>
+	
 <div id="edition" class="edition">
 	<i class="fa-regular fa-pen-to-square"></i>
 	<p>Mode édition</p>
@@ -88,10 +84,10 @@
 	<section id="portfolio">
 		<div class="portfolio-title">
 			<h2>Mes Projets</h2>
-			<div id="edit-project" class="hide-edit-project">
+			<button id="edit-project" class="hide-edit-project">
 				<i class="fa-regular fa-pen-to-square"></i>
-				<p>modifier</p>
-			</div>
+				modifier
+			</button>
 		</div>
 		<div class="filters"></div>
 		<div class="gallery"></div>

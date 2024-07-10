@@ -23,7 +23,7 @@ async function login() {
             const data = await response.json();
 
             if (response.ok) {
-                window.sessionStorage.logged = true;
+                window.sessionStorage.setItem("token", data.token);
                 window.location.href = "../index.html";
             } else {
                 addErrorMessage(data.message);

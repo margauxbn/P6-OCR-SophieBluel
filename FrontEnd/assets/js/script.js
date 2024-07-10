@@ -1,15 +1,10 @@
 //**************** TRAVAUX PAGE D'ACCUEIL ****************//
 
-
-
 const gallery = document.getElementsByClassName("gallery")[0];
 const filters = document.getElementsByClassName("filters")[0];
 
 
-
-
 //****** Ajout des travaux ******//
-
 
 // Récupération des travaux
 async function getWorks() {
@@ -42,23 +37,19 @@ async function showWorks() {
     });
 }
 
-
 showWorks();
 
 
 
 //**************** FILTRES ****************//
 
-
 //****** Ajout des boutons de filtres par catégorie ******//
-
 
 // Récupération des catégories
 async function getCategories() {
     const response = await fetch("http://localhost:5678/api/categories");
     return await response.json();
 }
-
 
 // Affichage des boutons
 async function showCategoryButtons() {
@@ -90,14 +81,10 @@ async function showCategoryButtons() {
     filtersCategories(); // Appel de la fonction pour activer les filtres après avoir créé les boutons
 }
 
-
 showCategoryButtons();
 
 
-
-
 //****** Activation des filtres ******//
-
 
 // Filtrage au clic
 async function filtersCategories() {
@@ -130,42 +117,33 @@ async function filtersCategories() {
 };
 
 
-
-
 //****** Utilisateur connecté ******//
 
-
-const logged = window.sessionStorage.logged;
 const logout = document.querySelector("header nav ul a li");
 
 
-if (logged === "true") {
+if (sessionStorage.token) {
     logout.textContent = "logout";
 
 
     logout.addEventListener("click", () =>
-        window.sessionStorage.logged = false
+        sessionStorage.removeItem("token")
     );
 };
-
 
 const editMode = document.getElementById("edition");
 const editProject = document.getElementById("edit-project")
 
 
-if (logged === "true") {
+if (sessionStorage.token) {
     editMode.style.display = "flex";
     editProject.style.display = "flex";
 };
 
 
-
-
 //**************** MODALE ****************//
 
-
 //****** Affichage de la modale ******//
-
 
 const containerModal = document.getElementsByClassName("container-modal")[0];
 
@@ -177,7 +155,6 @@ editProject.addEventListener("click", () => {
 
 
 //****** Fermeture de la modale ******//
-
 
 const xMark = document.getElementsByClassName("fa-x")[0];
 
@@ -192,7 +169,6 @@ containerModal.addEventListener("click", (e) => {
         containerModal.style.display = "none";
     }
 });
-
 
 
 //****** Affichage des projets dans la modale ******//
@@ -231,7 +207,6 @@ addProjectModal();
 
 //****** Suppression des travaux dans la modale ******//
 
-
 function deleteProject() {
     const allTrash = document.querySelectorAll(".fa-trash-can");
 
@@ -239,14 +214,15 @@ function deleteProject() {
     allTrash.forEach(trash => {
         trash.addEventListener("click", (e) => {
             const trashId = trash.id;
-            const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyMDQ0MjczNSwiZXhwIjoxNzIwNTI5MTM1fQ.NM3iVR0iKiI51AT1Hz5nkypQcuBYAoY9pRwjVnoIRWE";
+            
             const init = {
                 method: "DELETE",
                 headers: {
                     "content-Type" : "application/json",
-                    "Authorization": "Bearer " + token
+                    "Authorization": "Bearer " + sessionStorage.token
                 },
             };
+
             fetch("http://localhost:5678/api/works/" + trashId, init)
             .then((response) => {
                 if (!response.ok) {
@@ -368,14 +344,12 @@ form.addEventListener("submit", async (e) => {
 
     const formData = new FormData(form);
 
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyMDQ0MjczNSwiZXhwIjoxNzIwNTI5MTM1fQ.NM3iVR0iKiI51AT1Hz5nkypQcuBYAoY9pRwjVnoIRWE";
-
     try {
         const response = await fetch("http://localhost:5678/api/works", {
             method: "POST",
             body: formData,
             headers: {
-                "Authorization": "Bearer " + token
+                "Authorization": "Bearer " + sessionStorage.token
             },
         });
 

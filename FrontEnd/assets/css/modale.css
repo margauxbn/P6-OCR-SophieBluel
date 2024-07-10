@@ -7,7 +7,12 @@
     height: 100%;
     background: #0000004D;
     z-index: 1;
+    top: 0;
+    left: 0;
 }
+
+
+
 
 .elements-modal {
     background-color: #fff;
@@ -21,6 +26,9 @@
     position: relative;
 }
 
+
+
+
 .fa-x {
     font-size: 15px;
     position: absolute;
@@ -28,6 +36,9 @@
     right: 20px;
     cursor: pointer;
 }
+
+
+
 
 .container-modal h2 {
     font-family: "Work Sans";
@@ -37,10 +48,16 @@
     margin-top: 25px;
 }
 
+
+
+
 hr {
     width: 420px;
     border: 0.1px solid #B3B3B3;
 }
+
+
+
 
 .container-modal .btn-add-img {
     display: flex;
@@ -57,6 +74,9 @@ hr {
     cursor: pointer;
 }
 
+
+
+
 .project-modal {
     width: 80%;
     height: 50%;
@@ -65,14 +85,19 @@ hr {
     gap: 10px;
 }
 
+
 .project-modal figure {
     position: relative;
 }
+
+
+
 
 .project-modal img {
     width: 100%;
     height: auto;
 }
+
 
 .project-modal span {
     z-index: 1;
