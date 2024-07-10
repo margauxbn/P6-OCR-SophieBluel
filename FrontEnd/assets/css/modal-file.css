@@ -1,0 +1,174 @@
+.add-project-modal {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;    
+    background-color: #fff;
+    width: 630px;
+    height: 80%;
+    border-radius: 10px;
+    position: relative;
+}
+
+
+.fa-arrow-left {
+    font-size: 20px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+
+
+.fa-x {
+    font-size: 15px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+
+.add-project-modal h2 {
+    font-family: "Work Sans";
+    color: black;
+    font-size: 26px;
+    font-weight: 400;
+    margin-top: 25px;
+}
+
+
+.add-project-modal form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80%;
+    width: 80%;
+    gap: 10px;
+}
+
+
+form .container-add-file {
+    background-color: #E8F1F6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 30%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+
+.container-add-file .xmark-preview {
+    display: none;
+    font-size: 10px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+
+.container-add-file .fa-image {
+    font-size: 55px;
+    color: #B9C5CC;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
+.container-add-file label {
+    display: flex;
+    justify-content: center;
+    background-color: #CBD6DC;
+    color: #306685;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Work Sans";
+    width: 30%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+
+.container-add-file input {
+    display: none;
+}
+
+
+.container-add-file img {
+    display: none;
+    max-width: 100%;
+    height: 100%;
+}
+
+
+.container-add-file p {
+    color: #444444;
+    font-size: 10px;
+    font-family: "Work Sans";
+    font-weight: 400;
+}
+
+
+form label {
+    color: #3D3D3D;    ;
+    font-size: 14px;
+    font-family: "Work Sans";
+    font-weight: 500;
+}
+
+
+form input {
+    border: #fff 1px solid;
+    box-shadow: 0px 4px 14px 0px #00000017;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+
+form select {
+    border: #fff 1px solid;
+    box-shadow: 0px 4px 14px 0px #00000017;
+    height: 50px;
+    margin-bottom: 30px;
+    appearance: none;
+}
+
+
+form .btn-validate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+form .btn-validate-img {
+    display: flex;
+    justify-content: center;
+    font-family: 'Syne';
+    font-weight: 700;
+    color: white;
+    padding: 10px;
+    margin-bottom : 2rem;
+    margin-top: 30px;
+    width: 40%;
+    border-radius: 60px;
+    cursor: pointer;
+}
+
+
+form .btn-not-valid {
+    background-color: #A7A7A7;
+    border: 1px solid #A7A7A7;
+}
+
+
+form .btn-valid {
+    background-color: #1D6154;
+    border: 1px solid #1D6154;
+}
+

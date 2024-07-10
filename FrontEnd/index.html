@@ -10,22 +10,80 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/css/style.css">
 	<link rel="stylesheet" href="./assets/css/modal.css">
+	<link rel="stylesheet" href="./assets/css/modal-file.css">
 	<script src="./assets/js/script.js" defer></script>
 	<script src="https://kit.fontawesome.com/fd95aab434.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
 	<div class="container-modal">
-		<div class="elements-modal">
-			<i class="fa-solid fa-x"></i>
-			<h2>Galerie photo</h2>
-			<div class="project-modal"></div>
-			<hr />
-			<button>Ajouter une photo</button>
+        <div class="elements-modal">
+            <i class="fa-solid fa-x"></i>
+            <h2>Galerie photo</h2>
+            <div class="project-modal"></div>
+            <hr />
+            <button class="btn-add-img">Ajouter une photo</button>
+        </div>
+
+        <div class="add-project-modal">
+            <i class="fa-solid fa-arrow-left"></i>
+            <i class="fa-solid fa-x"></i>
+            <h2>Ajout photo</h2>
+            <form>
+                <div class="container-add-file">
+                    <i class="fa-solid fa-x xmark-preview"></i>
+                    <i class="fa-regular fa-image"></i>
+                    <label for="file" class="label-file">+ Ajouter photo</label>
+                    <input type="file" id="file" name="image" class="input-file">
+                    <img src="#" alt="Image à poster" class="img-preview">
+                    <p class="p-file">jpg, png : 4mo max</p>
+                </div>
+
+				<label for="title">Titre</label>
+				<input type="text" id="title" name="title">
+
+				<label for="category">Catégorie</label>
+				<select name="category" id="category"></select>
+				
+				<hr />
+
+				<div class="btn-validate">
+					<button class="btn-validate-img btn-not-valid" disabled>Valider</button>					
+				</div>
+			</form>
 		</div>
+
+		<div class="add-project-modal">
+            <i class="fa-solid fa-arrow-left"></i>
+            <i class="fa-solid fa-x"></i>
+            <h2>Ajout photo</h2>
+            <form>
+                <div class="container-add-file">
+                    <i class="fa-solid fa-x xmark-preview"></i>
+                    <i class="fa-regular fa-image"></i>
+                    <label for="file" class="label-file">+ Ajouter photo</label>
+                    <input type="file" id="file" name="image" class="input-file">
+                    <img src="#" alt="Image à poster" class="img-preview">
+                    <p class="p-file">jpg, png : 4mo max</p>
+                </div>
+
+
+                <label for="title">Titre</label>
+                <input type="text" id="title" name="title">
+
+
+                <label for="category">Catégorie</label>
+                <select name="category" id="category"></select>
+               
+                <hr />
+
+                <div class="btn-validate">
+                    <button class="btn-validate-img btn-not-valid" disabled>Valider</button>                    
+                </div>
+            </form>
+        </div>
 	</div>
-
-
+	
 <div id="edition" class="edition">
 	<i class="fa-regular fa-pen-to-square"></i>
 	<p>Mode édition</p>
@@ -56,10 +114,10 @@
 	<section id="portfolio">
 		<div class="portfolio-title">
 			<h2>Mes Projets</h2>
-			<div id="edit-project" class="hide-edit-project">
+			<button id="edit-project" class="hide-edit-project">
 				<i class="fa-regular fa-pen-to-square"></i>
-				<p>modifier</p>
-			</div>
+				modifier
+			</button>
 		</div>
 		<div class="filters"></div>
 		<div class="gallery"></div>

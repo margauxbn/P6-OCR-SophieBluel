@@ -160,22 +160,28 @@ li:hover {
 
 .portfolio-title {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
 }
 
 #portfolio h2 {
     text-align: center;
-    margin-bottom: 1em;
     position: relative;
 }
 
 #portfolio #edit-project {
     display: none;
-    flex-direction: row;
-    position: absolute;
-    right: 23rem;
-    top: 17px;
-    transform: translateY(-50%);
-	cursor: pointer;
+    cursor: pointer;
+    font-family: "Work Sans";
+    font-size: 14px;
+    border: none;
+    background-color: transparent;
 }
 
 #portfolio .fa-pen-to-square {
@@ -183,9 +189,6 @@ li:hover {
     margin-right: 8px;
 }
 
-#portfolio p {
-    font-size: 14px;
-}
 
 /* Add style for categories buttons*/
 .filters {
