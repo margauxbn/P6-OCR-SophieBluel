@@ -1,15 +1,10 @@
 //**************** TRAVAUX PAGE D'ACCUEIL ****************//
 
-
-
 const gallery = document.getElementsByClassName("gallery")[0];
 const filters = document.getElementsByClassName("filters")[0];
 
 
-
-
 //****** Ajout des travaux ******//
-
 
 // Récupération des travaux
 async function getWorks() {
@@ -42,23 +37,19 @@ async function showWorks() {
     });
 }
 
-
 showWorks();
 
 
 
 //**************** FILTRES ****************//
 
-
 //****** Ajout des boutons de filtres par catégorie ******//
-
 
 // Récupération des catégories
 async function getCategories() {
     const response = await fetch("http://localhost:5678/api/categories");
     return await response.json();
 }
-
 
 // Affichage des boutons
 async function showCategoryButtons() {
@@ -90,14 +81,10 @@ async function showCategoryButtons() {
     filtersCategories(); // Appel de la fonction pour activer les filtres après avoir créé les boutons
 }
 
-
 showCategoryButtons();
 
 
-
-
 //****** Activation des filtres ******//
-
 
 // Filtrage au clic
 async function filtersCategories() {
@@ -130,8 +117,6 @@ async function filtersCategories() {
 };
 
 
-
-
 //****** Utilisateur connecté ******//
 
 const logout = document.querySelector("header nav ul a li");
@@ -142,10 +127,9 @@ if (sessionStorage.token) {
 
 
     logout.addEventListener("click", () =>
-        window.sessionStorage.logged = false
+        sessionStorage.removeItem("token")
     );
 };
-
 
 const editMode = document.getElementById("edition");
 const editProject = document.getElementById("edit-project")
@@ -159,9 +143,7 @@ if (sessionStorage.token) {
 
 //**************** MODALE ****************//
 
-
 //****** Affichage de la modale ******//
-
 
 const containerModal = document.getElementsByClassName("container-modal")[0];
 
@@ -173,7 +155,6 @@ editProject.addEventListener("click", () => {
 
 
 //****** Fermeture de la modale ******//
-
 
 const xMark = document.getElementsByClassName("fa-x")[0];
 
@@ -188,7 +169,6 @@ containerModal.addEventListener("click", (e) => {
         containerModal.style.display = "none";
     }
 });
-
 
 
 //****** Affichage des projets dans la modale ******//
@@ -230,6 +210,7 @@ addProjectModal();
 function deleteProject() {
     const allTrash = document.querySelectorAll(".fa-trash-can");
 
+
     allTrash.forEach(trash => {
         trash.addEventListener("click", (e) => {
             const trashId = trash.id;
@@ -240,10 +221,11 @@ function deleteProject() {
                     "Authorization": "Bearer " + sessionStorage.token
                 },
             };
+
             fetch("http://localhost:5678/api/works/" + trashId, init)
             .then((response) => {
                 if (!response.ok) {
-                    console.log("delete pas ok");
+                    console.log("delete not ok");
                 }
                 return response.json()
             })
@@ -270,19 +252,16 @@ const modalAddProject = document.getElementsByClassName("add-project-modal")[0];
 const arrowLeft = document.getElementsByClassName("fa-arrow-left")[0];
 const xMarkAdd = document.querySelector(".add-project-modal .fa-x");
 
-
 function displayAddModal() {
     btnAddProject.addEventListener("click", () => {
         firstModal.style.display = "none",
         modalAddProject.style.display = "flex"
     });
 
-
     arrowLeft.addEventListener("click", () => {
         firstModal.style.display = "flex",
         modalAddProject.style.display = "none"
     });
-
 
     xMarkAdd.addEventListener("click", () => {
         containerModal.style.display = "none"
@@ -304,7 +283,6 @@ const inputFile = document.getElementsByClassName("input-file")[0];
 const imgPreview = document.getElementsByClassName("img-preview")[0];
 const paragraphFile = document.getElementsByClassName("p-file")[0];
 const xMarkPreview = document.getElementsByClassName("xmark-preview")[0];
-
 
 function previewProject() {
     inputFile.addEventListener("change", () => {
@@ -356,12 +334,10 @@ async function addCategoriesModal() {
     const select = document.querySelector("form select");
     const categoriesModal = await getCategories();
 
-
     categoriesModal.forEach(category => {
         const option = document.createElement("option");
         option.value = category.id;
         option.textContent = category.name;
-
 
         select.appendChild(option);
     });
@@ -399,7 +375,6 @@ form.addEventListener("submit", async (e) => {
             },
         });
 
-
         if (!response.ok) {
             throw new Error("Erreur lors de l'envoi des données : " + response.status);
         }
@@ -417,11 +392,9 @@ form.addEventListener("submit", async (e) => {
 });
 
 
-
 //****** Conditions pour pouvoir poster le nouveau projet ******//
 
 const btnValidation = document.getElementsByClassName("btn-validate-img")[0];
-
 
 form.addEventListener("input", () => {
     if (title.value !== "" && category.value !== "" && inputFile.value !== "") {

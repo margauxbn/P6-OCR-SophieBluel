@@ -12,6 +12,8 @@
 }
 
 
+
+
 .elements-modal {
     background-color: #fff;
     width: 630px;
@@ -25,12 +27,17 @@
 }
 
 
+
+
 .fa-x {
+    font-size: 15px;
     position: absolute;
     top: 20px;
     right: 20px;
     cursor: pointer;
 }
+
+
 
 
 .container-modal h2 {
@@ -42,13 +49,17 @@
 }
 
 
+
+
 hr {
     width: 420px;
-    border: 1px solid #B3B3B3;
+    border: 0.1px solid #B3B3B3;
 }
 
 
-.container-modal button {
+
+
+.container-modal .btn-add-img {
     display: flex;
     justify-content: center;
     font-family: 'Syne';
@@ -56,12 +67,14 @@ hr {
     color: white;
     background-color: #1D6154;
     padding: 10px;
-	  margin-bottom : 2rem;
-	  width: 180px;
-	  border-radius: 60px;
+    margin-bottom : 2rem;
+    width: 40%;
+    border-radius: 60px;
     border: #1D6154 1px solid;
     cursor: pointer;
 }
+
+
 
 
 .project-modal {
@@ -69,18 +82,22 @@ hr {
     height: 50%;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 10px; 
+    gap: 10px;
 }
+
 
 .project-modal figure {
     position: relative;
 }
 
 
+
+
 .project-modal img {
-    width: 100%; 
-    height: auto; 
+    width: 100%;
+    height: auto;
 }
+
 
 .project-modal span {
     z-index: 1;

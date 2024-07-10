@@ -164,6 +164,10 @@ li:hover {
     justify-content: center;
     align-items: center;
     gap: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
 }
 
 #portfolio h2 {
@@ -185,9 +189,6 @@ li:hover {
     margin-right: 8px;
 }
 
-#portfolio p {
-    font-size: 14px;
-}
 
 /* Add style for categories buttons*/
 .filters {
