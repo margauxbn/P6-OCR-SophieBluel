@@ -19,10 +19,8 @@ function addWorks(work) {
     const img = document.createElement("img");
     const figcaption = document.createElement("figcaption");
 
-
     img.src = work.imageUrl;
     figcaption.textContent = work.title;
-
 
     figure.appendChild(img);
     figure.appendChild(figcaption);
@@ -40,7 +38,6 @@ async function showWorks() {
 showWorks();
 
 
-
 //**************** FILTRES ****************//
 
 //****** Ajout des boutons de filtres par catégorie ******//
@@ -55,28 +52,22 @@ async function getCategories() {
 async function showCategoryButtons() {
     const allCategories = await getCategories();
 
-
     const buttonAll = document.createElement("button");
     buttonAll.textContent = "Tous";
     buttonAll.setAttribute("id", "0");
     buttonAll.classList.add("category-selected", "category-btn");
     filters.appendChild(buttonAll);
 
-
     allCategories.forEach(category => {
         const button = document.createElement("button");
-
 
         button.textContent = category.name;
         button.id = category.id;
 
-
         button.classList.add("category-btn");
-
 
         filters.appendChild(button);
     });
-
 
     filtersCategories(); // Appel de la fonction pour activer les filtres après avoir créé les boutons
 }
@@ -91,12 +82,10 @@ async function filtersCategories() {
     const projects = await getWorks();
     const buttons = document.querySelectorAll(".filters button");
 
-
     buttons.forEach((button) => {
         button.addEventListener("click", (btn) => {
             const buttonId = btn.target.id;
             gallery.innerHTML = "";
-
 
             buttons.forEach((btn) => btn.classList.remove("category-selected"));
             btn.target.classList.add("category-selected");
@@ -121,10 +110,8 @@ async function filtersCategories() {
 
 const logout = document.querySelector("header nav ul a li");
 
-
 if (sessionStorage.token) {
     logout.textContent = "logout";
-
 
     logout.addEventListener("click", () =>
         sessionStorage.removeItem("token")
@@ -133,7 +120,6 @@ if (sessionStorage.token) {
 
 const editMode = document.getElementById("edition");
 const editProject = document.getElementById("edit-project")
-
 
 if (sessionStorage.token) {
     editMode.style.display = "flex";
@@ -147,17 +133,14 @@ if (sessionStorage.token) {
 
 const containerModal = document.getElementsByClassName("container-modal")[0];
 
-
 editProject.addEventListener("click", () => {
     containerModal.style.display = "flex";
 });
 
 
-
 //****** Fermeture de la modale ******//
 
 const xMark = document.getElementsByClassName("fa-x")[0];
-
 
 xMark.addEventListener("click", () => {
     containerModal.style.display = "none";
@@ -179,13 +162,11 @@ async function addProjectModal() {
     projectModal.innerHTML = ""
     const projects = await getWorks();
 
-
     projects.forEach(project => {
         const figure = document.createElement("figure");
         const img = document.createElement("img");
         const span = document.createElement("span");
         const trash = document.createElement("i");
-
 
         img.src = project.imageUrl;
         trash.id = project.id;
@@ -197,7 +178,6 @@ async function addProjectModal() {
         figure.appendChild(span);
         span.appendChild(trash);
     });
-
 
     deleteProject();
 };
@@ -214,6 +194,7 @@ function deleteProject() {
     allTrash.forEach(trash => {
         trash.addEventListener("click", (e) => {
             const trashId = trash.id;
+
             const init = {
                 method: "DELETE",
                 headers: {
@@ -242,9 +223,7 @@ function deleteProject() {
 deleteProject();
 
 
-
 //****** Apparition de la modale d'ajout des nouveaux projets ******//
-
 
 const firstModal = document.getElementsByClassName("elements-modal")[0];
 const btnAddProject = document.getElementsByClassName("btn-add-img")[0];
@@ -272,10 +251,7 @@ function displayAddModal() {
 displayAddModal();
 
 
-
-
 //****** Aperçu de l'image dans la modale avant d'être postée ******//
-
 
 const imgIcon = document.getElementsByClassName("fa-image")[0];
 const labelFile = document.getElementsByClassName("label-file")[0];
@@ -288,10 +264,8 @@ function previewProject() {
     inputFile.addEventListener("change", () => {
         const file = inputFile.files[0];
 
-
         if(file) {
             const reader = new FileReader();
-
 
             reader.onload = function(e) {
                 imgPreview.src = e.target.result;
@@ -306,14 +280,10 @@ function previewProject() {
     });    
 };
 
-
 previewProject();
 
 
-
-
 //****** Suppression de l'image sélectionnée dans la modale ******//
-
 
 xMarkPreview.addEventListener("click", () => {
     imgPreview.src = "";
@@ -326,9 +296,7 @@ xMarkPreview.addEventListener("click", () => {
 
 
 
-
 //****** Création d'une liste des catégories pour l'input "Select" ******//
-
 
 async function addCategoriesModal() {
     const select = document.querySelector("form select");
@@ -343,28 +311,20 @@ async function addCategoriesModal() {
     });
 };
 
-
 addCategoriesModal();
 
 
-
-
 //****** Ajout du projet souhaité ******//
-
 
 const form = document.querySelector(".add-project-modal form");
 const title = document.querySelector("form #title");
 const category = document.querySelector("form #category");
 
 
-
-
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-
     const formData = new FormData(form);
-
 
     try {
         const response = await fetch("http://localhost:5678/api/works", {
@@ -379,13 +339,11 @@ form.addEventListener("submit", async (e) => {
             throw new Error("Erreur lors de l'envoi des données : " + response.status);
         }
 
-
         const data = await response.json();
-
 
         addWorks();
         containerModal.style.display = "none";
-       
+
     } catch (error) {
         console.error('Erreur lors de la requête fetch :', error);
     }
@@ -404,3 +362,4 @@ form.addEventListener("input", () => {
         btnValidation.disabled = false;
     }
 });
+

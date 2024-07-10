@@ -71,13 +71,10 @@ hr {
     position: relative;
 }
 
-
-
 .project-modal img {
     width: 100%;
     height: auto;
 }
-
 
 .project-modal span {
     z-index: 1;
@@ -90,3 +87,4 @@ hr {
     color: #FFF;
     cursor: pointer;
 }
+
